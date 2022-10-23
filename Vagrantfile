@@ -1,11 +1,11 @@
 MACHINES = {
 	:centos => {
-		:box_name => "almalinux/8",
+		:box_name => "centos/7",
 		:ip_addr => '192.168.1.2',
 		:script => './server.sh',
 	},
 	:centos2 => {
-		:box_name => "almalinux/8",
+		:box_name => "centos/7",
 		:ip_addr => '192.168.1.3',
 		:script => './server.sh',
 	},
