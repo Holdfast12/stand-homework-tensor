@@ -1,6 +1,6 @@
 MACHINES = {
     :centos => {
-        :box_name => "centos/7",
+        :box_name => "almalinux/8",
         :ip_addr => '192.168.1.2',
         :script => './server.sh',
     },
@@ -22,6 +22,7 @@ Vagrant.configure("2") do |config|
           sudo useradd student && echo -e "student\nstudent\n" | sudo passwd student
 		  echo "student ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 		  sudo sed -i 's:^PasswordAuthentication no:PasswordAuthentication yes:' /etc/ssh/sshd_config
+		  sudo sed -i 's:^#PasswordAuthentication yes:PasswordAuthentication yes:' /etc/ssh/sshd_config
 		  sudo systemctl reload sshd
           SHELL
         box.vm.provision "shell", path: boxconfig[:script]
